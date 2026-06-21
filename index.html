@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Arda Ünal | Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <style>
+    :root {
+      --bg: #0b1020;
+      --card: #131b33;
+      --text: #eaf0ff;
+      --muted: #9fb0d6;
+      --accent: #4f8cff;
+      --accent-2: #2fd0c3;
+      --border: #233056;
+      --chip: #1b2648;
+      --shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+      --radius: 16px;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: "Inter", system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+      background: radial-gradient(1200px 600px at 90% -10%, #20325f 0%, transparent 50%), var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a { color: var(--accent-2); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    .container {
+      width: min(1080px, 92%);
+      margin: 0 auto;
+      padding: 2rem 0 4rem;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: 140px 1fr;
+      gap: 1.25rem;
+      align-items: center;
+      background: linear-gradient(145deg, rgba(79, 140, 255, 0.22), rgba(47, 208, 195, 0.12));
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.2rem;
+      box-shadow: var(--shadow);
+    }
+
+    .avatar {
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid rgba(255, 255, 255, 0.2);
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(1.8rem, 3vw, 2.7rem);
+      line-height: 1.2;
+    }
+
+    .headline {
+      color: var(--muted);
+      margin-top: 0.45rem;
+      font-weight: 500;
+    }
+
+    .contact {
+      margin-top: 0.8rem;
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      color: var(--muted);
+      font-size: 0.94rem;
+    }
+
+    .contact i { margin-right: 0.4rem; color: var(--accent-2); }
+
+    .grid {
+      margin-top: 1.2rem;
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 1rem;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1rem 1.1rem;
+      box-shadow: var(--shadow);
+    }
+
+    .span-12 { grid-column: span 12; }
+    .span-8 { grid-column: span 8; }
+    .span-4 { grid-column: span 4; }
+    .span-6 { grid-column: span 6; }
+
+    .section-title {
+      display: flex;
+      align-items: center;
+      gap: 0.55rem;
+      margin: 0 0 0.75rem;
+      font-size: 1.08rem;
+      letter-spacing: 0.2px;
+    }
+
+    .section-title i { color: var(--accent); }
+
+    .item {
+      border-top: 1px solid rgba(255,255,255,0.08);
+      padding-top: 0.8rem;
+      margin-top: 0.8rem;
+    }
+
+    .item:first-of-type {
+      border-top: none;
+      padding-top: 0;
+      margin-top: 0;
+    }
+
+    .item h3 {
+      margin: 0;
+      font-size: 1rem;
+      line-height: 1.35;
+    }
+
+    .meta {
+      color: var(--muted);
+      font-size: 0.9rem;
+      margin: 0.2rem 0 0.45rem;
+    }
+
+    ul {
+      margin: 0.35rem 0 0.1rem 1.1rem;
+      padding: 0;
+    }
+
+    .chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .chip {
+      background: var(--chip);
+      border: 1px solid var(--border);
+      color: #d3ddff;
+      border-radius: 999px;
+      padding: 0.35rem 0.65rem;
+      font-size: 0.84rem;
+      font-weight: 500;
+    }
+
+    .year-block h4 {
+      margin: 0.3rem 0 0.35rem;
+      color: var(--accent-2);
+    }
+
+    footer {
+      margin-top: 1.2rem;
+      color: var(--muted);
+      font-size: 0.9rem;
+      text-align: center;
+    }
+
+    @media (max-width: 900px) {
+      .hero {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+
+      .avatar { margin: 0 auto; }
+      .contact { justify-content: center; }
+      .span-8, .span-4, .span-6 { grid-column: span 12; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header class="hero">
+      <img class="avatar" src="Arda.jpg" alt="Arda Ünal portrait" />
+      <div>
+        <h1>Arda Ünal</h1>
+        <p class="headline">IBDP Student | AI, Machine Learning & Quantitative Research Enthusiast</p>
+        <div class="contact">
+          <span><i class="fa-solid fa-location-dot"></i>Istanbul, Türkiye</span>
+          <span><i class="fa-solid fa-phone"></i>+90 532 266 50 50</span>
+          <span><i class="fa-solid fa-envelope"></i><a href="mailto:ardaunal1000@gmail.com">ardaunal1000@gmail.com</a></span>
+          <span><i class="fa-brands fa-linkedin"></i><a href="https://linkedin.com/in/arda-ünal-1ba497396" target="_blank" rel="noreferrer">LinkedIn</a></span>
+          <span><i class="fa-brands fa-github"></i><a href="https://github.com/King-Middle" target="_blank" rel="noreferrer">GitHub</a></span>
+        </div>
+      </div>
+    </header>
+
+    <main class="grid">
+      <section class="card span-8">
+        <h2 class="section-title"><i class="fa-solid fa-user-graduate"></i>Education & Academic Programmes</h2>
+
+        <article class="item">
+          <h3>SEV American College</h3>
+          <p class="meta">September 2023 – Present</p>
+          <ul>
+            <li>International Baccalaureate Diploma Programme (IBDP) and Turkish National Education Diploma (MEB).</li>
+            <li>GPA: Grade 9 – 90.77, Grade 10 – 91.18.</li>
+            <li>HL: Mathematics Analysis & Approaches, Physics, Computer Science.</li>
+            <li>SL: English A Language & Literature, Turkish A Language & Literature, Turkey in the Twentieth Century (TITC).</li>
+          </ul>
+        </article>
+
+        <article class="item">
+          <h3>Python Programming & Mathematics — Aziz Nesin Mathematics Village</h3>
+          <p class="meta">August 2025 (2 weeks)</p>
+          <ul>
+            <li>Applied Python and mathematical modeling to connect theory with coding practice.</li>
+          </ul>
+        </article>
+
+        <article class="item">
+          <h3>AI & Machine Learning Programme — Immerse Education, University of Oxford</h3>
+          <p class="meta">July 2025 (2 weeks)</p>
+          <ul>
+            <li>Studied AI, ML, deep learning, and neural network analysis.</li>
+            <li>Developed a financial forecasting bot using 180 days of stock data and 28 macroeconomic indicators.</li>
+          </ul>
+        </article>
+
+        <article class="item">
+          <h3>Quantum Programming Exploration — QTurkey</h3>
+          <p class="meta">April 2025 (2 weeks)</p>
+          <ul>
+            <li>Explored quantum computing fundamentals and Qiskit-based programming.</li>
+          </ul>
+        </article>
+      </section>
+
+      <section class="card span-4">
+        <h2 class="section-title"><i class="fa-solid fa-screwdriver-wrench"></i>Focus Areas</h2>
+        <div class="chips">
+          <span class="chip">Machine Learning</span>
+          <span class="chip">LSTM & Time Series</span>
+          <span class="chip">AI in Finance</span>
+          <span class="chip">Predictive Modeling</span>
+          <span class="chip">TensorFlow</span>
+          <span class="chip">Python</span>
+          <span class="chip">Unity & C#</span>
+          <span class="chip">Data Science</span>
+          <span class="chip">Research Writing</span>
+          <span class="chip">Robotics Outreach</span>
+        </div>
+
+        <article class="item">
+          <h3 class="section-title" style="font-size: 1rem; margin-bottom: 0.4rem;"><i class="fa-solid fa-bullseye"></i>University Goal</h3>
+          <p style="margin: 0; color: var(--muted);">Targeting top-ranked universities in the US and UK with a strong profile in AI, computer science, and innovation-driven research.</p>
+        </article>
+      </section>
+
+      <section class="card span-12">
+        <h2 class="section-title"><i class="fa-solid fa-diagram-project"></i>Projects</h2>
+
+        <article class="item">
+          <h3>LSTM-Based Stock Price Prediction System (Patent Application)</h3>
+          <p class="meta">April 2026</p>
+          <ul>
+            <li>Developed a multi-layer LSTM model for time series forecasting and optimized time windows/hyperparameters.</li>
+            <li>Designed and deployed the system; patent application filed (No: 2026/004897).</li>
+          </ul>
+        </article>
+
+        <article class="item">
+          <h3>AI Financial Forecasting Bot — <a href="https://www.hamdiai.com" target="_blank" rel="noreferrer">hamdiai.com</a></h3>
+          <p class="meta">August – September 2025</p>
+          <ul>
+            <li>Built and trained a neural network in Python/TensorFlow with 5 years of stock data and 28 macroeconomic indicators.</li>
+            <li>Evaluated performance and published findings on Medium under "Stock Prediction".</li>
+          </ul>
+        </article>
+
+        <article class="item">
+          <h3>Flying Up — 3D Indie Game (Steam)</h3>
+          <p class="meta">April – July 2025</p>
+          <ul>
+            <li>Developed and published a 3D game in Unity and C#, using trigonometry and vector mathematics.</li>
+            <li>Reached 41 downloads and generated $41 revenue.</li>
+            <li><a href="https://store.steampowered.com/app/3665050/Flying_Up/" target="_blank" rel="noreferrer">Steam Link</a></li>
+          </ul>
+        </article>
+      </section>
+
+      <section class="card span-6">
+        <h2 class="section-title"><i class="fa-solid fa-briefcase"></i>Experience & Leadership</h2>
+
+        <article class="item">
+          <h3>Researcher — Pioneer Academics Research Program</h3>
+          <p class="meta">June 2026 – Present</p>
+          <ul>
+            <li>Conducting independent research with mentorship from Prof. Christian Lopez Bencosme (Lafayette College).</li>
+            <li>Focus: data science, predictive modeling, and AI-assisted workflows.</li>
+          </ul>
+        </article>
+
+        <article class="item">
+          <h3>Independent Research Writer — Medium</h3>
+          <p class="meta">October 2025 – Present</p>
+          <ul>
+            <li>Documenting LSTM stock prediction model design, data decisions, and experimentation.</li>
+            <li>Writing about ethics in AI finance, black-box models, and inequality.</li>
+          </ul>
+        </article>
+
+        <article class="item">
+          <h3>Engineering Intern — Meyer Group</h3>
+          <p class="meta">July 2025 (1 week)</p>
+          <ul>
+            <li>Assisted with final testing of security systems and hardware-software integration.</li>
+            <li>Observed end-to-end access control development and contributed to small workflow improvements.</li>
+          </ul>
+        </article>
+
+        <article class="item">
+          <h3>Community Engagement Lead — FRC Robotics Club</h3>
+          <p class="meta">September 2023 – June 2024</p>
+          <ul>
+            <li>Designed and led a robotics workshop for 80 kindergarten students.</li>
+            <li>Introduced AI/robotics concepts and digital creativity tools.</li>
+          </ul>
+        </article>
+      </section>
+
+      <section class="card span-6">
+        <h2 class="section-title"><i class="fa-solid fa-trophy"></i>Honors & Awards</h2>
+
+        <div class="year-block item">
+          <h4>2026</h4>
+          <ul>
+            <li>University of Rochester — Xerox Award for Innovation and Information Technology.</li>
+            <li>Worcester Polytechnic Institute — WPI Innovation Award ($25,000 Merit Scholarship).</li>
+            <li>Purple Comet Math Meet — 1st Place Global (958 teams) and 1st Place Türkiye (112 teams).</li>
+            <li>KİMFİBİ Science Competition — Physics Champion.</li>
+            <li>University of Waterloo Mathematics Competitions — School Champion, Fermat Medal, Hypatia Medal.</li>
+          </ul>
+        </div>
+
+        <div class="year-block item">
+          <h4>2025</h4>
+          <ul>
+            <li>ASMA Mathematics Competition — 2nd Place (School Level).</li>
+            <li>ABRSM Grade 8 Certificate — Royal Academy of Music.</li>
+            <li>University of Waterloo Mathematics Competitions — School Champion, Pascal/Cayley/Fermat Medals.</li>
+            <li>Turkey Intelligence Foundation National Exam — 43rd.</li>
+          </ul>
+        </div>
+
+        <div class="year-block item">
+          <h4>2024</h4>
+          <ul>
+            <li>University of Waterloo Mathematics Competitions — School Champion, Pascal/Cayley/Fermat Medals.</li>
+            <li>Turkey Intelligence Foundation National Exam — 52nd.</li>
+          </ul>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      Built from CV data • Last updated: June 2026
+    </footer>
+  </div>
+</body>
+</html>
