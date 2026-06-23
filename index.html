@@ -3,374 +3,1302 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Arda Ünal | Portfolio</title>
+  <title>Arda Ünal | AI, Software & Research</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Source+Code+Pro:wght@500;700&display=swap" rel="stylesheet" />
   <style>
     :root {
-      --bg: #0b1020;
-      --card: #131b33;
-      --text: #eaf0ff;
-      --muted: #9fb0d6;
-      --accent: #4f8cff;
-      --accent-2: #2fd0c3;
-      --border: #233056;
-      --chip: #1b2648;
-      --shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
-      --radius: 16px;
+      --bg: #0f172a;
+      --bg-soft: #1e293b;
+      --card: #111827;
+      --text: #f8fafc;
+      --muted: #cbd5e1;
+      --accent: #22d3ee;
+      --accent-2: #818cf8;
+      --line: #334155;
+      --radius: 18px;
+      --shadow: 0 14px 40px rgba(2, 6, 23, 0.35);
     }
 
     * { box-sizing: border-box; }
 
+    html {
+      scroll-behavior: smooth;
+      scroll-snap-type: y mandatory;
+    }
+
     body {
       margin: 0;
       font-family: "Inter", system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
-      background: radial-gradient(1200px 600px at 90% -10%, #20325f 0%, transparent 50%), var(--bg);
       color: var(--text);
-      line-height: 1.6;
+      background:
+        radial-gradient(900px 500px at 10% -10%, rgba(34, 211, 238, 0.15), transparent 60%),
+        radial-gradient(700px 450px at 90% -20%, rgba(129, 140, 248, 0.2), transparent 55%),
+        var(--bg);
+      line-height: 1.65;
+      scroll-padding-top: 84px;
+      position: relative;
+      min-height: 100vh;
+      overflow-x: hidden;
     }
 
-    a { color: var(--accent-2); text-decoration: none; }
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background: url("orion-bg.svg") center/cover no-repeat;
+      opacity: 0.12;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    body::after {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background: rgba(15, 23, 42, 0.26);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    a { color: var(--accent); text-decoration: none; }
     a:hover { text-decoration: underline; }
 
     .container {
-      width: min(1080px, 92%);
+      width: min(1100px, 92%);
       margin: 0 auto;
-      padding: 2rem 0 4rem;
+      padding-bottom: 4rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.05rem 0;
+      position: sticky;
+      top: 0;
+      backdrop-filter: blur(8px);
+      background: rgba(15, 23, 42, 0.75);
+      z-index: 10;
+      border-bottom: 1px solid rgba(51, 65, 85, 0.5);
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.72rem;
+      color: #f8fafc;
+    }
+
+    .brand:hover,
+    .brand:focus-visible {
+      text-decoration: none;
+    }
+
+    .brand-text {
+      display: flex;
+      flex-direction: column;
+      line-height: 1;
+    }
+
+    .brand-main {
+      font-size: 1.2rem;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 0.45rem;
+    }
+
+    .brand-icon {
+      width: 40px;
+      height: 40px;
+      object-fit: contain;
+      border-radius: 8px;
+      opacity: 0.98;
+      border: 1px solid rgba(148, 163, 184, 0.35);
+      background: rgba(15, 23, 42, 0.55);
+      padding: 3px;
+    }
+
+    .brand-sub {
+      margin-top: 0.17rem;
+      font-size: 0.62rem;
+      font-weight: 600;
+      color: #f59e0b;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1.2rem;
+      flex-wrap: wrap;
+    }
+      text-transform: none;
+    .nav-links a {
+      color: var(--muted);
+      font-size: 0.88rem;
+      font-weight: 700;
+      letter-spacing: 0.35px;
+      text-transform: uppercase;
+      text-underline-offset: 5px;
+      text-decoration-thickness: 2px;
+      text-decoration-color: transparent;
+      transition: color 0.2s ease, text-decoration-color 0.2s ease;
+    }
+
+    .nav-links a.home-link {
+      color: #f8fafc;
+      text-transform: none;
+      letter-spacing: 0.02em;
+      text-decoration: underline;
+      text-decoration-color: #f59e0b;
+      text-underline-offset: 6px;
+    }
+
+    .nav-links a:hover,
+    .nav-links a:focus-visible {
+      color: #e2e8f0;
+      text-decoration: underline;
+      text-decoration-color: #f59e0b;
     }
 
     .hero {
+      padding: 3.2rem 0 2.15rem;
       display: grid;
-      grid-template-columns: 140px 1fr;
-      gap: 1.25rem;
+      grid-template-columns: 340px 1fr;
+      gap: 2rem;
       align-items: center;
-      background: linear-gradient(145deg, rgba(79, 140, 255, 0.22), rgba(47, 208, 195, 0.12));
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 1.2rem;
-      box-shadow: var(--shadow);
+      min-height: calc(100vh - 84px);
+      scroll-snap-align: start;
+      scroll-snap-stop: always;
+      scroll-margin-top: 84px;
+    }
+
+    .panel {
+      min-height: calc(100vh - 84px);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      scroll-snap-align: start;
+      scroll-snap-stop: always;
+      scroll-margin-top: 84px;
+    }
+
+    #snapshot {
+      min-height: auto;
+      justify-content: flex-start;
+    }
+
+    #what-i-work-with {
+      min-height: auto;
+      justify-content: flex-start;
+    }
+
+    #awards {
+      min-height: auto;
+      justify-content: flex-start;
     }
 
     .avatar {
-      width: 140px;
-      height: 140px;
-      border-radius: 50%;
+      width: 340px;
+      height: 340px;
+      border-radius: 32px;
       object-fit: cover;
-      border: 3px solid rgba(255, 255, 255, 0.2);
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+      position: relative;
+      z-index: 1;
+    }
+
+    .avatar-wrap {
+      position: relative;
+      width: fit-content;
+    }
+
+    .avatar-wrap::before,
+    .avatar-wrap::after {
+      content: "";
+      position: absolute;
+      width: 52px;
+      height: 52px;
+      border-color: rgba(148, 163, 184, 0.7);
+      border-style: solid;
+      pointer-events: none;
+      z-index: 2;
+    }
+
+    .avatar-wrap::before {
+      top: -9px;
+      left: -9px;
+      border-width: 2px 0 0 2px;
+      border-top-left-radius: 12px;
+    }
+
+    .avatar-wrap::after {
+      right: -9px;
+      bottom: -9px;
+      border-width: 0 2px 2px 0;
+      border-bottom-right-radius: 12px;
     }
 
     h1 {
       margin: 0;
-      font-size: clamp(1.8rem, 3vw, 2.7rem);
-      line-height: 1.2;
+      font-size: clamp(1.6rem, 2.8vw, 2.4rem);
+      line-height: 1.08;
+      letter-spacing: -0.02em;
     }
 
-    .headline {
+    .hero-headline {
+      font-size: clamp(1.45rem, 2.45vw, 2.1rem);
+      margin-top: 0.35rem;
+      margin-bottom: 1rem;
+    }
+
+    .kicker {
+      margin: 0 0 0.7rem;
+      color: #94a3b8;
+      font-size: 0.8rem;
+      letter-spacing: 0.14em;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+
+    .hero p {
+      margin: 1rem 0 1.35rem;
+      max-width: 760px;
       color: var(--muted);
-      margin-top: 0.45rem;
-      font-weight: 500;
+      font-size: 1.02rem;
+    }
+
+    .cta-work {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.52rem 1.05rem;
+      border-radius: 999px;
+      border: 1px solid rgba(34, 211, 238, 0.55);
+      background: linear-gradient(90deg, var(--accent), var(--accent-2));
+      color: #0f172a;
+      font-family: 'Source Code Pro', monospace;
+      font-weight: 700;
+      letter-spacing: 0.01em;
+      text-decoration: none;
+      box-shadow: 0 10px 22px rgba(34, 211, 238, 0.28);
+      margin: 0;
+      transition: transform 0.15s ease, box-shadow 0.2s ease;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 0.65rem;
+      flex-wrap: wrap;
+      align-items: center;
+      margin: 2rem 0 1rem;
+    }
+
+    .hero-actions .cta-work,
+    .hero-actions .pill,
+    .hero-actions .pill-linkedin {
+      min-height: 42px;
+      display: inline-flex;
+      align-items: center;
+    }
+
+    .cta-work:hover {
+      text-decoration: none;
+      transform: translateY(-1px);
+      box-shadow: 0 14px 28px rgba(129, 140, 248, 0.34);
     }
 
     .contact {
-      margin-top: 0.8rem;
       display: flex;
-      gap: 1rem;
+      gap: 0.65rem;
       flex-wrap: wrap;
+    }
+
+    .pill {
+      background: rgba(30, 41, 59, 0.75);
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 0.4rem 0.75rem;
+      font-size: 0.86rem;
+      color: #e2e8f0;
+    }
+
+    .pill-mail a {
+      font-family: 'Source Code Pro', monospace;
+      font-weight: 700;
+      letter-spacing: 0.01em;
+    }
+
+    .pill-linkedin {
+      background: rgba(30, 41, 59, 0.75);
+      border: 1px solid rgba(99, 102, 241, 0.55);
+      border-radius: 999px;
+      padding: 0.4rem 0.85rem;
+      font-size: 0.84rem;
+      color: #a5b4fc;
+      font-family: 'Source Code Pro', monospace;
+      font-weight: 700;
+      letter-spacing: 0.01em;
+      transition: background 0.2s, border-color 0.2s;
+      display: inline-block;
+    }
+
+    .pill-linkedin a {
+      color: inherit;
+    }
+
+    .pill-linkedin:hover {
+      background: rgba(99, 102, 241, 0.18);
+      border-color: #818cf8;
+    }
+
+    .name-block {
+      line-height: 1.02;
+      margin: 0 0 2rem;
+      letter-spacing: -0.03em;
+    }
+
+    .name-first {
+      display: block;
+      font-size: clamp(3rem, 8vw, 5.5rem);
+      font-weight: 800;
+      color: #f8fafc;
+    }
+
+    .name-last {
+      display: block;
+      font-size: clamp(3rem, 8vw, 5.5rem);
+      font-weight: 800;
+      color: #22d3ee;
+      margin-top: 0.38rem;
+    }
+
+    section {
+      margin-top: 1.35rem;
+      background: linear-gradient(180deg, rgba(17, 24, 39, 0.95), rgba(15, 23, 42, 0.95));
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 1.35rem 1.3rem;
+      box-shadow: var(--shadow);
+    }
+
+    h2 {
+      margin: 0 0 1rem;
+      font-size: clamp(1.45rem, 2.8vw, 1.95rem);
+      color: #e2e8f0;
+      letter-spacing: -0.01em;
+    }
+
+    h3 {
+      letter-spacing: -0.01em;
+    }
+
+    .built-title {
+      background: linear-gradient(90deg, #22d3ee, #818cf8);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .stats {
+      display: grid;
+      grid-auto-flow: column;
+      grid-auto-columns: minmax(118px, 1fr);
+      gap: 0.55rem;
+      overflow-x: auto;
+      padding-bottom: 0.22rem;
+      scrollbar-width: thin;
+    }
+
+    .stat {
+      background: rgba(30, 41, 59, 0.7);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 0.68rem 0.62rem;
+      font-size: 0.74rem;
+      color: #94a3b8;
+      line-height: 1.45;
+      text-align: center;
+    }
+
+    .stat strong {
+      display: block;
+      font-size: clamp(2.25rem, 5.1vw, 2.95rem);
+      line-height: 1.05;
+      color: #22d3ee;
+      margin: 0 0 0.24rem;
+      text-align: center;
+    }
+
+    .work-with-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      grid-template-rows: repeat(3, minmax(0, auto));
+      grid-auto-flow: column;
+      column-gap: 1rem;
+      row-gap: 0.72rem;
+    }
+
+    .cap-card {
+      padding: 0.2rem 0;
+    }
+
+    .cap-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 0.65rem;
+      margin-bottom: 0.3rem;
+    }
+
+    .cap-name {
+      margin: 0;
+      font-size: 0.94rem;
+      color: #e2e8f0;
+      font-weight: 700;
+    }
+
+    .cap-score {
+      margin: 0;
+      font-size: 0.9rem;
+      color: #22d3ee;
+      font-family: 'Source Code Pro', monospace;
+      font-weight: 700;
+    }
+
+    .cap-meta {
+      margin: 0.28rem 0 0;
+      font-size: 0.8rem;
+      color: #94a3b8;
+      text-transform: lowercase;
+    }
+
+    .cap-bar {
+      height: 8px;
+      border-radius: 999px;
+      background: rgba(51, 65, 85, 0.65);
+      overflow: hidden;
+      border: 1px solid rgba(71, 85, 105, 0.55);
+    }
+
+    .cap-fill {
+      display: block;
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, #22d3ee, #818cf8);
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.8rem;
+    }
+
+    .project-card {
+      background: var(--bg-soft);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      overflow: hidden;
+    }
+
+    .project-card img {
+      width: 100%;
+      height: 170px;
+      object-fit: cover;
+      border-bottom: 1px solid var(--line);
+      display: block;
+    }
+
+    .project-card img.fit-contain {
+      object-fit: contain;
+      background: rgba(15, 23, 42, 0.9);
+    }
+
+    .project-content {
+      padding: 1rem;
+    }
+
+    .project-card h3 {
+      margin: 0;
+      font-size: 1.03rem;
+      color: #bfdbfe;
+    }
+
+    #software .meta {
+      margin: 0.2rem 0 0.45rem;
+      color: #93c5fd;
+      font-size: 0.84rem;
+      font-family: 'Source Code Pro', monospace;
+      font-weight: 700;
+    }
+
+    #software .detail {
+      margin: 0.44rem 0;
       color: var(--muted);
       font-size: 0.94rem;
     }
 
-    .contact i { margin-right: 0.4rem; color: var(--accent-2); }
+    .project-link {
+      margin-top: 0.45rem;
+      display: inline-flex;
+      align-items: center;
+      border: 1px solid rgba(99, 102, 241, 0.5);
+      border-radius: 999px;
+      padding: 0.32rem 0.72rem;
+      font-size: 0.8rem;
+      font-family: 'Source Code Pro', monospace;
+      font-weight: 700;
+      color: #a5b4fc;
+      text-decoration: none;
+    }
 
-    .grid {
-      margin-top: 1.2rem;
+    .project-link:hover {
+      text-decoration: none;
+      background: rgba(99, 102, 241, 0.16);
+      border-color: #818cf8;
+    }
+
+    .link-ai {
+      color: #22d3ee;
+      font-weight: 600;
+    }
+
+    .link-dev {
+      color: #818cf8;
+      font-weight: 600;
+    }
+
+    .link-write {
+      color: #f59e0b;
+      font-weight: 600;
+    }
+
+    .link-research {
+      color: #34d399;
+      font-weight: 600;
+    }
+
+    .split {
       display: grid;
-      grid-template-columns: repeat(12, 1fr);
-      gap: 1rem;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.95rem;
     }
 
-    .card {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 1rem 1.1rem;
-      box-shadow: var(--shadow);
+    .list-card {
+      background: var(--bg-soft);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 1rem;
     }
 
-    .span-12 { grid-column: span 12; }
-    .span-8 { grid-column: span 8; }
-    .span-4 { grid-column: span 4; }
-    .span-6 { grid-column: span 6; }
+    .list-card h3 {
+      margin: 0;
+      font-size: 0.98rem;
+    }
 
-    .section-title {
+    .writing-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.95rem;
+    }
+
+    .writing-card {
+      background: var(--bg-soft);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      overflow: hidden;
+    }
+
+    .writing-media {
+      height: 170px;
+      border-bottom: 1px solid var(--line);
+      background: rgba(15, 23, 42, 0.9);
       display: flex;
       align-items: center;
+      justify-content: center;
+      padding: 1rem;
+    }
+
+    .writing-media img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
+    }
+
+    .writing-content {
+      padding: 1rem;
+      display: grid;
       gap: 0.55rem;
-      margin: 0 0 0.75rem;
-      font-size: 1.08rem;
-      letter-spacing: 0.2px;
     }
 
-    .section-title i { color: var(--accent); }
-
-    .item {
-      border-top: 1px solid rgba(255,255,255,0.08);
-      padding-top: 0.8rem;
-      margin-top: 0.8rem;
-    }
-
-    .item:first-of-type {
-      border-top: none;
-      padding-top: 0;
-      margin-top: 0;
-    }
-
-    .item h3 {
+    .writing-content h3 {
       margin: 0;
       font-size: 1rem;
-      line-height: 1.35;
+      color: #bfdbfe;
     }
 
-    .meta {
+    .writing-items {
+      display: grid;
+      gap: 0.48rem;
+    }
+
+    .writing-point {
+      margin: 0;
+      border: 1px solid rgba(71, 85, 105, 0.62);
+      border-radius: 10px;
+      background: rgba(15, 23, 42, 0.5);
+      padding: 0.58rem 0.64rem;
       color: var(--muted);
+      font-size: 0.88rem;
+      line-height: 1.5;
+    }
+
+    .awards-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.75rem;
+    }
+
+    .award-card {
+      background: var(--bg-soft);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 0.8rem 0.85rem;
+      display: grid;
+      gap: 0.35rem;
+    }
+
+    .award-head {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .award-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 999px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.35rem;
+      background: rgba(99, 102, 241, 0.18);
+      border: 1px solid rgba(129, 140, 248, 0.55);
+    }
+
+    .award-year {
+      margin: 0;
+      color: #93c5fd;
+      font-size: 0.75rem;
+      font-family: 'Source Code Pro', monospace;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+    }
+
+    .award-title {
+      margin: 0;
+      font-size: 0.95rem;
+      color: #bfdbfe;
+      font-weight: 700;
+      line-height: 1.4;
+    }
+
+    .award-note {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.86rem;
+      line-height: 1.5;
+    }
+
+    .mini-stack {
+      display: grid;
+      gap: 0.52rem;
+      margin-top: 0.55rem;
+    }
+
+    .mini-item {
+      border: 1px solid rgba(71, 85, 105, 0.62);
+      border-radius: 10px;
+      padding: 0.62rem 0.72rem;
+      background: rgba(15, 23, 42, 0.5);
+    }
+
+    .mini-date {
+      margin: 0;
+      color: #93c5fd;
+      font-size: 0.76rem;
+      font-family: 'Source Code Pro', monospace;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+    }
+
+    .mini-item h4 {
+      margin: 0.2rem 0 0;
       font-size: 0.9rem;
-      margin: 0.2rem 0 0.45rem;
+      color: #bfdbfe;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+    }
+
+    .mini-item p {
+      margin: 0.28rem 0 0;
+      color: var(--muted);
+      font-size: 0.85rem;
+      line-height: 1.52;
     }
 
     ul {
-      margin: 0.35rem 0 0.1rem 1.1rem;
+      margin: 0.55rem 0 0 1rem;
       padding: 0;
+      color: var(--muted);
+      font-size: 0.92rem;
     }
 
     .chips {
       display: flex;
-      flex-wrap: wrap;
       gap: 0.5rem;
+      flex-wrap: wrap;
+      margin-top: 0.6rem;
     }
 
     .chip {
-      background: var(--chip);
-      border: 1px solid var(--border);
-      color: #d3ddff;
-      border-radius: 999px;
-      padding: 0.35rem 0.65rem;
       font-size: 0.84rem;
-      font-weight: 500;
+      background: rgba(15, 23, 42, 0.8);
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 0.35rem 0.7rem;
+      color: #e2e8f0;
     }
 
-    .year-block h4 {
-      margin: 0.3rem 0 0.35rem;
-      color: var(--accent-2);
+    .talk-section {
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2rem;
     }
 
-    footer {
-      margin-top: 1.2rem;
+    .talk-kicker {
+      margin: 0;
+      font-size: 1.1rem;
+      line-height: 1.2;
+      letter-spacing: 0.01em;
+      color: #f8fafc;
+      font-weight: 700;
+    }
+
+    .talk-title {
+      margin: 0;
+      font-size: clamp(2.2rem, 4.8vw, 3.25rem);
+      line-height: 1.08;
+      letter-spacing: -0.02em;
+      background: linear-gradient(90deg, #22d3ee, #818cf8);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .talk-copy {
+      margin: 0;
+      max-width: 760px;
       color: var(--muted);
+      font-size: 1rem;
+      line-height: 1.75;
+    }
+
+    .talk-actions {
+      margin-top: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 0.65rem;
+      flex-wrap: wrap;
+    }
+
+    .talk-mail {
+      background: rgba(30, 41, 59, 0.75);
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 0.45rem 0.82rem;
+      color: #e2e8f0;
+      font-size: 0.88rem;
+      font-family: 'Source Code Pro', monospace;
+      font-weight: 700;
+    }
+
+    .talk-mail a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .site-footer {
+      margin-top: 1.5rem;
+      padding: 1.05rem 0 0.3rem;
+      scroll-snap-align: start;
+      scroll-snap-stop: always;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr 1fr;
+      gap: 1.8rem;
+      align-items: start;
+    }
+
+    .footer-grid > div:first-child {
+      justify-self: start;
+    }
+
+    .footer-grid > div:nth-child(2) {
+      justify-self: center;
+    }
+
+    .footer-grid > div:last-child {
+      justify-self: end;
+      text-align: right;
+    }
+
+    .footer-brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      color: #f8fafc;
+      text-decoration: none;
+    }
+
+    .footer-brand:hover,
+    .footer-brand:focus-visible {
+      text-decoration: none;
+    }
+
+    .footer-brand-icon {
+      width: 34px;
+      height: 34px;
+      object-fit: contain;
+      border-radius: 8px;
+      border: 1px solid rgba(148, 163, 184, 0.35);
+      background: rgba(15, 23, 42, 0.55);
+      padding: 2px;
+    }
+
+    .footer-name {
+      margin: 0;
+      color: #f8fafc;
+      font-size: 1.18rem;
+      font-weight: 800;
+    }
+
+    .footer-title {
+      margin: 0.3rem 0 0.8rem;
+      color: var(--muted);
+      font-size: 0.98rem;
+    }
+
+    .footer-social {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+
+    .social-link {
+      width: 34px;
+      height: 34px;
+      border-radius: 999px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      color: #e2e8f0;
+      border: 1px solid rgba(99, 102, 241, 0.5);
+      background: rgba(30, 41, 59, 0.7);
+      font-family: 'Source Code Pro', monospace;
+      font-size: 0.8rem;
+      font-weight: 700;
+    }
+
+    .social-link:hover {
+      text-decoration: none;
+      border-color: #818cf8;
+      background: rgba(99, 102, 241, 0.16);
+    }
+
+    .footer-head {
+      margin: 0 0 0.5rem;
+      color: #ddd6fe;
+      font-size: 0.94rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-family: 'Source Code Pro', monospace;
+      font-weight: 700;
+    }
+
+    .footer-list {
+      display: grid;
+      gap: 0.32rem;
+    }
+
+    .footer-list a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 0.98rem;
+    }
+
+    .footer-list a:hover {
+      color: #f8fafc;
+      text-decoration: underline;
+      text-decoration-color: #f59e0b;
+      text-underline-offset: 4px;
+    }
+
+    .footer-bottom {
+      margin: 1rem 0 0;
+      color: #94a3b8;
       font-size: 0.9rem;
       text-align: center;
     }
 
-    @media (max-width: 900px) {
-      .hero {
-        grid-template-columns: 1fr;
-        text-align: center;
+    @media (max-width: 980px) {
+      .hero { grid-template-columns: 1fr; text-align: center; }
+      .hero,
+      .panel {
+        min-height: auto;
+        scroll-snap-align: none;
+        scroll-snap-stop: normal;
       }
-
+      .footer-grid { grid-template-columns: 1fr; gap: 1rem; }
+      .footer-grid > div:nth-child(2),
+      .footer-grid > div:last-child { justify-self: start; text-align: left; }
       .avatar { margin: 0 auto; }
       .contact { justify-content: center; }
-      .span-8, .span-4, .span-6 { grid-column: span 12; }
+      .stats { grid-auto-columns: minmax(112px, 1fr); }
+      .work-with-grid { grid-template-columns: 1fr; }
+      .writing-grid { grid-template-columns: 1fr; }
+      .awards-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .grid-3, .split { grid-template-columns: 1fr; }
+      .nav { position: static; }
+      .talk-actions { justify-content: center; }
+    }
+
+    @media (max-width: 640px) {
+      .hero {
+        padding-top: 2.3rem;
+        gap: 1.25rem;
+      }
+
+      .avatar {
+        width: 260px;
+        height: 260px;
+      }
+
+      .avatar-wrap {
+        margin: 0 auto;
+      }
+
+      h1 {
+        font-size: clamp(2rem, 9vw, 2.65rem);
+      }
+
+      .hero-headline {
+        font-size: clamp(1.8rem, 8vw, 2.35rem);
+      }
+
+      section {
+        padding: 1.1rem;
+      }
+
+      .brand-sub {
+        display: none;
+      }
+
+      .awards-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
 <body>
   <div class="container">
-    <header class="hero">
-      <img class="avatar" src="Arda.jpg" alt="Arda Ünal portrait" />
+    <nav class="nav">
+      <a class="brand" href="index.html" aria-label="Arda Ünal home">
+        <img class="brand-icon" src="file.enc" alt="Brand icon" />
+        <span class="brand-text">
+          <span class="brand-main">Arda Ünal</span>
+          <span class="brand-sub">i did it because i had to</span>
+        </span>
+      </a>
+      <div class="nav-links">
+        <a href="#about" class="home-link">Home</a>
+        <a href="about.html">About</a>
+        <a href="work.html">Work</a>
+        <a href="research.html">Research</a>
+        <a href="experience.html">Experience</a>
+        <a href="articles.html">Articles</a>
+      </div>
+    </nav>
+
+    <header class="hero" id="about">
+      <div class="avatar-wrap">
+        <img class="avatar" src="Arda.jpg" alt="Arda Ünal portrait" />
+      </div>
       <div>
-        <h1>Arda Ünal</h1>
-        <p class="headline">IBDP Student | AI, Machine Learning & Quantitative Research Enthusiast</p>
-        <div class="contact">
-          <span><i class="fa-solid fa-location-dot"></i>Istanbul, Türkiye</span>
-          <span><i class="fa-solid fa-phone"></i>+90 532 266 50 50</span>
-          <span><i class="fa-solid fa-envelope"></i><a href="mailto:ardaunal1000@gmail.com">ardaunal1000@gmail.com</a></span>
-          <span><i class="fa-brands fa-linkedin"></i><a href="https://linkedin.com/in/arda-ünal-1ba497396" target="_blank" rel="noreferrer">LinkedIn</a></span>
-          <span><i class="fa-brands fa-github"></i><a href="https://github.com/King-Middle" target="_blank" rel="noreferrer">GitHub</a></span>
+        <p class="kicker">Programmer · AI Builder · Research Writer</p>
+        <div class="name-block" aria-label="Arda Ünal">
+          <span class="name-first">Arda</span>
+          <span class="name-last">ÜNAL</span>
+        </div>
+        <h1 class="hero-headline">I build software, explore AI, and write about technology.</h1>
+        <p>
+          I am Arda Ünal, an IB student from Istanbul focused on <a href="#software" class="link-dev">computer science</a>,
+          <a href="#software" class="link-ai">AI</a>, and <a href="research.html" class="link-research">applied mathematics</a>.
+          I enjoy building ambitious projects from scratch, testing them in real conditions, and sharing both the wins
+          and the failures through <a href="articles.html" class="link-write">technical writing</a>.
+        </p>
+        <div class="hero-actions">
+          <a class="cta-work" href="work.html">View My Work →</a>
+          <span class="pill-linkedin"><a href="https://linkedin.com/in/arda-ünal-1ba497396" target="_blank" rel="noreferrer">Connect On LinkedIn →</a></span>
         </div>
       </div>
     </header>
 
-    <main class="grid">
-      <section class="card span-8">
-        <h2 class="section-title"><i class="fa-solid fa-user-graduate"></i>Education & Academic Programmes</h2>
+    <section class="panel" id="snapshot">
+      <div class="stats">
+        <div class="stat"><strong>12</strong>awards and honors</div>
+        <div class="stat"><strong>4+</strong>published articles</div>
+        <div class="stat"><strong>4</strong>research tracks</div>
+        <div class="stat"><strong>6</strong>internship and work experiences</div>
+        <div class="stat"><strong>3</strong>launched projects</div>
+        <div class="stat"><strong>1</strong>patent application</div>
+      </div>
+    </section>
 
-        <article class="item">
-          <h3>SEV American College</h3>
-          <p class="meta">September 2023 – Present</p>
-          <ul>
-            <li>International Baccalaureate Diploma Programme (IBDP) and Turkish National Education Diploma (MEB).</li>
-            <li>GPA: Grade 9 – 90.77, Grade 10 – 91.18.</li>
-            <li>HL: Mathematics Analysis & Approaches, Physics, Computer Science.</li>
-            <li>SL: English A Language & Literature, Turkish A Language & Literature, Turkey in the Twentieth Century (TITC).</li>
-          </ul>
+    <section class="panel" id="what-i-work-with">
+      <h2 class="built-title">What I Work With</h2>
+      <div class="work-with-grid">
+        <article class="cap-card">
+          <div class="cap-top"><h3 class="cap-name">Python</h3><p class="cap-score">95%</p></div>
+          <div class="cap-bar"><span class="cap-fill" style="width: 95%"></span></div>
+          <p class="cap-meta">ai · backend · data</p>
+        </article>
+        <article class="cap-card">
+          <div class="cap-top"><h3 class="cap-name">TensorFlow / ML</h3><p class="cap-score">90%</p></div>
+          <div class="cap-bar"><span class="cap-fill" style="width: 90%"></span></div>
+          <p class="cap-meta">modeling · experimentation</p>
+        </article>
+        <article class="cap-card">
+          <div class="cap-top"><h3 class="cap-name">C# / Unity</h3><p class="cap-score">84%</p></div>
+          <div class="cap-bar"><span class="cap-fill" style="width: 84%"></span></div>
+          <p class="cap-meta">game systems · deployment</p>
+        </article>
+        <article class="cap-card">
+          <div class="cap-top"><h3 class="cap-name">Java</h3><p class="cap-score">80%</p></div>
+          <div class="cap-bar"><span class="cap-fill" style="width: 80%"></span></div>
+          <p class="cap-meta">object-oriented development</p>
+        </article>
+        <article class="cap-card">
+          <div class="cap-top"><h3 class="cap-name">SQL / Data</h3><p class="cap-score">78%</p></div>
+          <div class="cap-bar"><span class="cap-fill" style="width: 78%"></span></div>
+          <p class="cap-meta">queries · analysis pipelines</p>
+        </article>
+        <article class="cap-card">
+          <div class="cap-top"><h3 class="cap-name">GitHub / Shipping</h3><p class="cap-score">88%</p></div>
+          <div class="cap-bar"><span class="cap-fill" style="width: 88%"></span></div>
+          <p class="cap-meta">versioning · release workflows</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="panel" id="software">
+      <h2 class="built-title">Things I've Built</h2>
+      <div class="grid-3">
+        <article class="project-card">
+          <img class="fit-contain" src="Patent.jpg" alt="LSTM patent project visual" />
+          <div class="project-content">
+            <h3>LSTM-Based Stock Price Prediction System</h3>
+            <p class="meta">Patent Application • April 2026</p>
+            <p class="detail">I co-developed a multi-layer LSTM forecasting system that combines technical and macroeconomic indicators, then optimized windows and hyperparameters for stable time-series performance.</p>
+            <p class="detail">The system was deployed for practical use and filed as a patent application (No: 2026/004897).</p>
+            <a class="project-link" href="../Patent/LSTM%20Tabanli%20Hisse%20Senedi%20Fiyat%20Tahmin%20Sistemi%20Tarifname_v3.pdf" target="_blank" rel="noreferrer">Project Document →</a>
+          </div>
         </article>
 
-        <article class="item">
-          <h3>Python Programming & Mathematics — Aziz Nesin Mathematics Village</h3>
-          <p class="meta">August 2025 (2 weeks)</p>
-          <ul>
-            <li>Applied Python and mathematical modeling to connect theory with coding practice.</li>
-          </ul>
+        <article class="project-card">
+          <img src="HamdiAI.jpg" alt="AI financial forecasting results" />
+          <div class="project-content">
+            <h3>AI Financial Forecasting Bot</h3>
+            <p class="meta">Python, TensorFlow • Aug–Sep 2025</p>
+            <p class="detail">I built and trained a forecasting bot on 5 years of stock data plus 28 macroeconomic indicators, then evaluated failure cases like overfitting and distribution shift.</p>
+            <p class="detail">The model is published as a live web tool and documented through technical writing.</p>
+            <a class="project-link" href="https://www.hamdiai.com" target="_blank" rel="noreferrer">Live Demo →</a>
+            <a class="project-link" href="https://medium.com/@ardaunal1000/" target="_blank" rel="noreferrer">Write-Up →</a>
+          </div>
         </article>
 
-        <article class="item">
-          <h3>AI & Machine Learning Programme — Immerse Education, University of Oxford</h3>
-          <p class="meta">July 2025 (2 weeks)</p>
-          <ul>
-            <li>Studied AI, ML, deep learning, and neural network analysis.</li>
-            <li>Developed a financial forecasting bot using 180 days of stock data and 28 macroeconomic indicators.</li>
-          </ul>
+        <article class="project-card">
+          <img class="fit-contain" src="FlyingUp.jpg" alt="Flying Up game visual" />
+          <div class="project-content">
+            <h3>Flying Up (Steam)</h3>
+            <p class="meta">Unity, C# • Apr–Jul 2025</p>
+            <p class="detail">I developed and shipped a full 3D indie game as a solo developer using C# and Unity, including gameplay systems and physics-based movement.</p>
+            <p class="detail">The project reached 41 downloads and generated revenue after release on Steam.</p>
+            <a class="project-link" href="https://store.steampowered.com/app/3665050/Flying_Up/" target="_blank" rel="noreferrer">View On Steam →</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="panel" id="writing">
+      <h2>Articles & Technical Writing</h2>
+      <div class="writing-grid">
+        <article class="writing-card">
+          <div class="writing-media">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/e/ec/Medium_logo_Monogram.svg" alt="Medium logo" />
+          </div>
+          <div class="writing-content">
+            <h3>Medium</h3>
+            <div class="writing-items">
+              <p class="writing-point">Stock prediction: model design, dataset decisions, and experiment outcomes.</p>
+              <p class="writing-point">The ethical dimension of AI in finance: black-box models, fairness, and inequality.</p>
+              <p class="writing-point">Reflections on what failed in my ML pipeline and what improved after iteration.</p>
+            </div>
+            <a class="project-link" href="https://medium.com/@ardaunal1000/" target="_blank" rel="noreferrer">Read on Medium →</a>
+          </div>
         </article>
 
-        <article class="item">
-          <h3>Quantum Programming Exploration — QTurkey</h3>
-          <p class="meta">April 2025 (2 weeks)</p>
-          <ul>
-            <li>Explored quantum computing fundamentals and Qiskit-based programming.</li>
-          </ul>
+        <article class="writing-card">
+          <div class="writing-content">
+            <h3>School Magazine SEVTIMES</h3>
+            <div class="writing-items">
+              <p class="writing-point">Published three articles as Digital Citizen Ambassador & Writer.</p>
+              <p class="writing-point">Focused on social media effects: loneliness, comparison pressure, and digital overexposure.</p>
+              <p class="writing-point">Connected technology literacy with personal well-being and responsible use.</p>
+            </div>
+          </div>
         </article>
-      </section>
+      </div>
+    </section>
 
-      <section class="card span-4">
-        <h2 class="section-title"><i class="fa-solid fa-screwdriver-wrench"></i>Focus Areas</h2>
-        <div class="chips">
-          <span class="chip">Machine Learning</span>
-          <span class="chip">LSTM & Time Series</span>
-          <span class="chip">AI in Finance</span>
-          <span class="chip">Predictive Modeling</span>
-          <span class="chip">TensorFlow</span>
-          <span class="chip">Python</span>
-          <span class="chip">Unity & C#</span>
-          <span class="chip">Data Science</span>
-          <span class="chip">Research Writing</span>
-          <span class="chip">Robotics Outreach</span>
+    <section class="panel" id="research">
+      <h2>Research, Internship & Academic Exploration</h2>
+      <div class="split">
+        <article class="list-card">
+          <h3>Research</h3>
+          <div class="mini-stack">
+            <article class="mini-item">
+              <p class="mini-date">June 2026 - Present</p>
+              <h4>Pioneer Academics Research Program</h4>
+              <p>Independent research in data science and predictive modeling with academic mentorship.</p>
+            </article>
+            <article class="mini-item">
+              <p class="mini-date">October 2025 - Present</p>
+              <h4>Independent AI Research Writing</h4>
+              <p>Technical writing on forecasting systems and ethics of black-box AI models.</p>
+            </article>
+            <article class="mini-item">
+              <p class="mini-date">2025</p>
+              <h4>Oxford & QTurkey Programs</h4>
+              <p>Applied ML forecasting practice and quantum programming exploration with Qiskit.</p>
+            </article>
+          </div>
+        </article>
+
+        <article class="list-card">
+          <h3>Internship</h3>
+          <div class="mini-stack">
+            <article class="mini-item">
+              <p class="mini-date">July 2025</p>
+              <h4>Engineering Intern, Meyer Group</h4>
+              <p>Supported final testing, integration checks, and observed full access-control workflows.</p>
+            </article>
+          </div>
+        </article>
+      </div>
+
+      <div class="chips" aria-label="Programming languages">
+        <span class="chip">Programming Languages: Python</span>
+        <span class="chip">Programming Languages: C#</span>
+        <span class="chip">Programming Languages: Java</span>
+        <span class="chip">Tools: TensorFlow, Scikit-learn, Pandas, NumPy</span>
+        <span class="chip">Platforms: Unity, GitHub, Steam</span>
+      </div>
+    </section>
+
+    <section class="panel" id="awards">
+      <h2>Awards & Recognition</h2>
+      <div class="awards-grid">
+        <article class="award-card">
+          <div class="award-head"><span class="award-icon">🎓</span><p class="award-year">2026</p></div>
+          <p class="award-title">Scholarships</p>
+          <p class="award-note">WPI Innovation Award ($25,000 Merit Scholarship) and University of Rochester Xerox Award for Innovation & Information Technology.</p>
+        </article>
+        <article class="award-card">
+          <div class="award-head"><span class="award-icon">🏆</span><p class="award-year">2024-2026</p></div>
+          <p class="award-title">Competitions</p>
+          <p class="award-note">Purple Comet Global/Turkey 1st place, Waterloo medals, KIMFIBI Physics Champion, ASMA 2nd place, and Turkey Intelligence Foundation national rankings.</p>
+        </article>
+        <article class="award-card">
+          <div class="award-head"><span class="award-icon">🎵</span><p class="award-year">2025</p></div>
+          <p class="award-title">Music Award</p>
+          <p class="award-note">ABRSM Grade 8 Certificate (Royal Academy of Music), awarded after advanced-level external performance assessment.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="talk-section">
+      <p class="talk-kicker">Let's talk</p>
+      <h2 class="talk-title">Have a project, role, or<br />idea in mind?</h2>
+      <p class="talk-copy">I'm always open to interesting problems, internships, and collaborations. Reach out - I'll get back to you quickly.</p>
+      <div class="talk-actions">
+        <a class="cta-work" href="contact.html">Get in touch →</a>
+        <span class="talk-mail"><a href="mailto:ardaunal1000@gmail.com">ardaunal1000@gmail.com</a></span>
+      </div>
+    </section>
+
+    <footer class="site-footer">
+      <div class="footer-grid">
+        <div>
+          <a class="footer-brand" href="index.html" aria-label="Arda Ünal home">
+            <img class="footer-brand-icon" src="file.enc" alt="Brand icon" />
+            <p class="footer-name">Arda Ünal</p>
+          </a>
+          <p class="footer-title">Student Developer • AI Researcher</p>
+          <div class="footer-social">
+            <a class="social-link" href="https://github.com/King-Middle" target="_blank" rel="noreferrer" aria-label="GitHub">🐙</a>
+            <a class="social-link" href="https://linkedin.com/in/arda-ünal-1ba497396" target="_blank" rel="noreferrer" aria-label="LinkedIn">in</a>
+            <a class="social-link" href="https://medium.com/@ardaunal1000/" target="_blank" rel="noreferrer" aria-label="Medium">M</a>
+          </div>
         </div>
-
-        <article class="item">
-          <h3 class="section-title" style="font-size: 1rem; margin-bottom: 0.4rem;"><i class="fa-solid fa-bullseye"></i>University Goal</h3>
-          <p style="margin: 0; color: var(--muted);">Targeting top-ranked universities in the US and UK with a strong profile in AI, computer science, and innovation-driven research.</p>
-        </article>
-      </section>
-
-      <section class="card span-12">
-        <h2 class="section-title"><i class="fa-solid fa-diagram-project"></i>Projects</h2>
-
-        <article class="item">
-          <h3>LSTM-Based Stock Price Prediction System (Patent Application)</h3>
-          <p class="meta">April 2026</p>
-          <ul>
-            <li>Developed a multi-layer LSTM model for time series forecasting and optimized time windows/hyperparameters.</li>
-            <li>Designed and deployed the system; patent application filed (No: 2026/004897).</li>
-          </ul>
-        </article>
-
-        <article class="item">
-          <h3>AI Financial Forecasting Bot — <a href="https://www.hamdiai.com" target="_blank" rel="noreferrer">hamdiai.com</a></h3>
-          <p class="meta">August – September 2025</p>
-          <ul>
-            <li>Built and trained a neural network in Python/TensorFlow with 5 years of stock data and 28 macroeconomic indicators.</li>
-            <li>Evaluated performance and published findings on Medium under "Stock Prediction".</li>
-          </ul>
-        </article>
-
-        <article class="item">
-          <h3>Flying Up — 3D Indie Game (Steam)</h3>
-          <p class="meta">April – July 2025</p>
-          <ul>
-            <li>Developed and published a 3D game in Unity and C#, using trigonometry and vector mathematics.</li>
-            <li>Reached 41 downloads and generated $41 revenue.</li>
-            <li><a href="https://store.steampowered.com/app/3665050/Flying_Up/" target="_blank" rel="noreferrer">Steam Link</a></li>
-          </ul>
-        </article>
-      </section>
-
-      <section class="card span-6">
-        <h2 class="section-title"><i class="fa-solid fa-briefcase"></i>Experience & Leadership</h2>
-
-        <article class="item">
-          <h3>Researcher — Pioneer Academics Research Program</h3>
-          <p class="meta">June 2026 – Present</p>
-          <ul>
-            <li>Conducting independent research with mentorship from Prof. Christian Lopez Bencosme (Lafayette College).</li>
-            <li>Focus: data science, predictive modeling, and AI-assisted workflows.</li>
-          </ul>
-        </article>
-
-        <article class="item">
-          <h3>Independent Research Writer — Medium</h3>
-          <p class="meta">October 2025 – Present</p>
-          <ul>
-            <li>Documenting LSTM stock prediction model design, data decisions, and experimentation.</li>
-            <li>Writing about ethics in AI finance, black-box models, and inequality.</li>
-          </ul>
-        </article>
-
-        <article class="item">
-          <h3>Engineering Intern — Meyer Group</h3>
-          <p class="meta">July 2025 (1 week)</p>
-          <ul>
-            <li>Assisted with final testing of security systems and hardware-software integration.</li>
-            <li>Observed end-to-end access control development and contributed to small workflow improvements.</li>
-          </ul>
-        </article>
-
-        <article class="item">
-          <h3>Community Engagement Lead — FRC Robotics Club</h3>
-          <p class="meta">September 2023 – June 2024</p>
-          <ul>
-            <li>Designed and led a robotics workshop for 80 kindergarten students.</li>
-            <li>Introduced AI/robotics concepts and digital creativity tools.</li>
-          </ul>
-        </article>
-      </section>
-
-      <section class="card span-6">
-        <h2 class="section-title"><i class="fa-solid fa-trophy"></i>Honors & Awards</h2>
-
-        <div class="year-block item">
-          <h4>2026</h4>
-          <ul>
-            <li>University of Rochester — Xerox Award for Innovation and Information Technology.</li>
-            <li>Worcester Polytechnic Institute — WPI Innovation Award ($25,000 Merit Scholarship).</li>
-            <li>Purple Comet Math Meet — 1st Place Global (958 teams) and 1st Place Türkiye (112 teams).</li>
-            <li>KİMFİBİ Science Competition — Physics Champion.</li>
-            <li>University of Waterloo Mathematics Competitions — School Champion, Fermat Medal, Hypatia Medal.</li>
-          </ul>
+        <div>
+          <p class="footer-head">Navigate</p>
+          <div class="footer-list">
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="work.html">Work</a>
+            <a href="research.html">Research</a>
+            <a href="experience.html">Experience</a>
+            <a href="articles.html">Articles</a>
+            <a href="contact.html">Contact</a>
+          </div>
         </div>
-
-        <div class="year-block item">
-          <h4>2025</h4>
-          <ul>
-            <li>ASMA Mathematics Competition — 2nd Place (School Level).</li>
-            <li>ABRSM Grade 8 Certificate — Royal Academy of Music.</li>
-            <li>University of Waterloo Mathematics Competitions — School Champion, Pascal/Cayley/Fermat Medals.</li>
-            <li>Turkey Intelligence Foundation National Exam — 43rd.</li>
-          </ul>
+        <div>
+          <p class="footer-head">Contact</p>
+          <div class="footer-list">
+            <a href="mailto:ardaunal1000@gmail.com">ardaunal1000@gmail.com</a>
+            <a href="https://github.com/King-Middle" target="_blank" rel="noreferrer">github.com/King-Middle</a>
+            <a href="https://linkedin.com/in/arda-ünal-1ba497396" target="_blank" rel="noreferrer">linkedin.com/in/arda-ünal-1ba497396</a>
+            <a href="https://medium.com/@ardaunal1000/" target="_blank" rel="noreferrer">medium.com/@ardaunal1000</a>
+            <a href="contact.html?request=cv#request-cv">Request CV</a>
+          </div>
         </div>
-
-        <div class="year-block item">
-          <h4>2024</h4>
-          <ul>
-            <li>University of Waterloo Mathematics Competitions — School Champion, Pascal/Cayley/Fermat Medals.</li>
-            <li>Turkey Intelligence Foundation National Exam — 52nd.</li>
-          </ul>
-        </div>
-      </section>
-    </main>
-
-    <footer>
-      Built from CV data • Last updated: June 2026
+      </div>
+      <p class="footer-bottom">Built as a personal introduction page • Last updated: June 2026</p>
     </footer>
   </div>
 </body>
