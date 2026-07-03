@@ -439,6 +439,43 @@
       color: var(--muted);
     }
 
+    .photo-gallery {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+    }
+
+    .photo-card {
+      background: var(--bg-soft);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: 0 8px 24px rgba(2, 6, 23, 0.3);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .photo-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 14px 36px rgba(2, 6, 23, 0.45);
+    }
+
+    .photo-card img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      display: block;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .photo-caption {
+      padding: 0.75rem 1rem;
+      font-size: 0.84rem;
+      font-weight: 600;
+      color: var(--muted);
+      letter-spacing: 0.02em;
+      text-align: center;
+    }
+
     .collab-section {
       text-align: center;
     }
@@ -665,16 +702,16 @@
         <img class="brand-icon" src="file.enc" alt="Brand icon" />
         <span class="brand-text">
           <span class="brand-main">Arda Ünal</span>
-          <span class="brand-sub">I did it because I had to</span>
+          <span class="brand-sub">Understanding Comes First<br>Building Comes Next</span>
         </span>
       </a>
       <div class="nav-links">
         <a href="index.html">Home</a>
         <a href="about.html" class="active">About</a>
-        <a href="work.html">Work</a>
-        <a href="research.html">Research</a>
-        <a href="experience.html">Experience</a>
-        <a href="articles.html">Articles</a>
+        <a href="work.html">Projects</a>
+        
+        
+        <a href="articles.html">Writing</a>
       </div>
     </nav>
 
@@ -686,24 +723,14 @@
         writes about what works and what fails, and keeps building at the intersection of
         engineering, mathematics, and real-world impact.
       </p>
+      <p class="lede">I have always been more interested in difficult questions than easy answers. Over time, that curiosity grew into projects, research, and writing. I realized that building something is one of the best ways for me to test ideas, question what I think I know, and learn from both success and failure.</p>
+      <p class="lede">Today, I am interested in problems that sit at the intersection of mathematics, artificial intelligence, finance, and human behavior. Whether I am developing an AI forecasting model, writing about explainable AI, or exploring the effects of technology on people, I am drawn to questions that do not have simple answers.</p>
+      <p class="lede">For me, solving a problem is important, but understanding why it behaves the way it does is just as rewarding.</p>
     </header>
 
     <section class="story">
       <div class="about-layout">
         <div class="about-side">
-          <article class="whoami-card" aria-label="Developer whoami card">
-            <p class="terminal-head">Developer Console</p>
-            <p class="terminal-line"><span class="prompt">$</span> whoami</p>
-            <p class="terminal-line">Arda Ünal — student developer, AI builder, and occasional debugger of life.</p>
-            <p class="terminal-line"><span class="prompt">$</span> cat /skills/core.txt</p>
-            <div class="terminal-list">
-              <p class="terminal-pill">builds products from idea to launch</p>
-              <p class="terminal-pill">turns messy data into useful models</p>
-              <p class="terminal-pill">writes what works (and what fails)</p>
-              <p class="terminal-pill">runs on curiosity + coffee + iteration</p>
-            </div>
-          </article>
-
           <div class="mini-grid">
             <article class="mini-info" aria-label="Languages">
               <p class="mini-label">Languages</p>
@@ -747,37 +774,34 @@
       </div>
     </section>
 
+
     <section>
-      <h2>Four things I keep coming back to</h2>
-      <div class="grid-4">
-        <article class="card">
-          <div class="card-head">
-            <span class="card-icon" aria-hidden="true">&lt;/&gt;</span>
-            <h3>Software & Products</h3>
-          </div>
-          <p>I design and ship end-to-end products from data-driven web tools to game development workflows, with a strong emphasis on usability and performance.</p>
-        </article>
-        <article class="card">
-          <div class="card-head">
-            <span class="card-icon" aria-hidden="true">AI</span>
-            <h3>Applied AI Systems</h3>
-          </div>
-          <p>I build practical AI pipelines for forecasting and decision support, focusing on data quality, model evaluation, and responsible deployment.</p>
-        </article>
-        <article class="card">
-          <div class="card-head">
-            <span class="card-icon" aria-hidden="true">Σ</span>
-            <h3>Research & Quant Thinking</h3>
-          </div>
-          <p>I enjoy modeling real problems with math and code, especially time-series forecasting, hyperparameter tuning, and experimental analysis.</p>
-        </article>
-        <article class="card">
-          <div class="card-head">
-            <span class="card-icon" aria-hidden="true">✍</span>
-            <h3>Writing & Knowledge Sharing</h3>
-          </div>
-          <p>I publish technical and reflective articles on Medium and in school publications to make complex AI topics clearer and more actionable.</p>
-        </article>
+      <h2>Moments</h2>
+      <div class="photo-gallery">
+        <div class="photo-card">
+          <img src="KIMFIBI-Physics1st.png" alt="KIMFIBI Championship" />
+          <p class="photo-caption">KİMFİBİ Science Competition, Physics Champion</p>
+        </div>
+        <div class="photo-card">
+          <img src="KIMFIBI-Physics2.png" alt="KIMFIBI Championship" />
+          <p class="photo-caption">KİMFİBİ Science Competition, Physics Champion</p>
+        </div>
+        <div class="photo-card">
+          <img src="PurpleMath.jpg" alt="Purple Math Championship" />
+          <p class="photo-caption">Purple Math Championship</p>
+        </div>
+        <div class="photo-card">
+          <img src="DCAnaokulu.jpg" alt="Digital Citizenship with Primary School Students" />
+          <p class="photo-caption">When introducing digital citizenship to kindergarten students</p>
+        </div>
+        <div class="photo-card">
+          <img src="Immerse.jpg" alt="Oxford University Summer AI Camp" />
+          <p class="photo-caption">I'm in Oxford University for Summer AI Camp</p>
+        </div>
+        <div class="photo-card">
+          <img src="Waterloo.jpg" alt="Waterloo University Mathematics Champion" style="height:320px; object-fit:cover; object-position: center 20%;" />
+          <p class="photo-caption">School Champion; Fermat Medal, Cayley Medal and Hypatia Medal</p>
+        </div>
       </div>
     </section>
 
@@ -786,7 +810,6 @@
       <div class="contact-box">
         <div class="actions">
           <a class="btn btn-primary" href="contact.html">Get in touch</a>
-          <a class="btn btn-secondary" href="experience.html">My Experince</a>
         </div>
       </div>
     </section>
@@ -829,8 +852,8 @@
         <div>
           <p class="footer-head">Navigate</p>
           <div class="footer-list">
-            <a href="index.html">Home</a><a href="about.html">About</a><a href="work.html">Work</a>
-            <a href="research.html">Research</a><a href="experience.html">Experience</a><a href="articles.html">Articles</a><a href="contact.html">Contact</a>
+            <a href="index.html">Home</a><a href="about.html">About</a><a href="work.html">Projects</a>
+            <a href="articles.html">Writing</a><a href="contact.html">Contact</a>
           </div>
         </div>
         <div>
