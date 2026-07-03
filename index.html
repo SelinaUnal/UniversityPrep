@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<m>plore </m><!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -123,6 +123,15 @@
       padding: 3px;
     }
 
+    .brand-tagline {
+      font-size: 0.65rem;
+      font-weight: 600;
+      color: var(--accent);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
     .brand-sub {
       margin-top: 0.17rem;
       font-size: 0.62rem;
@@ -190,6 +199,11 @@
     }
 
     #snapshot {
+      min-height: auto;
+      justify-content: flex-start;
+    }
+
+    #software {
       min-height: auto;
       justify-content: flex-start;
     }
@@ -266,6 +280,16 @@
       letter-spacing: 0.14em;
       font-weight: 700;
       text-transform: uppercase;
+    }
+
+    .hero-tagline {
+      margin: 0.3rem 0 1rem;
+      color: var(--accent);
+      font-size: 0.8rem;
+      letter-spacing: 0.14em;
+      font-weight: 700;
+      text-transform: uppercase;
+      text-align: center;
     }
 
     .hero p {
@@ -475,7 +499,7 @@
 
     .cap-meta {
       margin: 0.28rem 0 0;
-      font-size: 0.8rem;
+      font-size: 0.95rem;
       color: #94a3b8;
       text-transform: lowercase;
     }
@@ -499,6 +523,7 @@
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: 0.8rem;
+      align-items: start;
     }
 
     .project-card {
@@ -650,12 +675,24 @@
       gap: 0.48rem;
     }
 
-    .writing-point {
-      margin: 0;
+    .writing-entry {
       border: 1px solid rgba(71, 85, 105, 0.62);
       border-radius: 10px;
       background: rgba(15, 23, 42, 0.5);
       padding: 0.58rem 0.64rem;
+    }
+
+    .writing-label {
+      margin: 0 0 0.18rem;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+
+    .writing-point {
+      margin: 0;
       color: var(--muted);
       font-size: 0.88rem;
       line-height: 1.5;
@@ -1031,16 +1068,17 @@
         <img class="brand-icon" src="file.enc" alt="Brand icon" />
         <span class="brand-text">
           <span class="brand-main">Arda Ünal</span>
-          <span class="brand-sub">i did it because i had to</span>
+          
+          <span class="brand-sub">Understanding Comes First<br>Building Comes Next</span>
         </span>
       </a>
       <div class="nav-links">
         <a href="#about" class="home-link">Home</a>
         <a href="about.html">About</a>
-        <a href="work.html">Work</a>
-        <a href="research.html">Research</a>
-        <a href="experience.html">Experience</a>
-        <a href="articles.html">Articles</a>
+        <a href="work.html">Projects</a>
+        
+        
+        <a href="articles.html">Writing</a>
       </div>
     </nav>
 
@@ -1049,18 +1087,12 @@
         <img class="avatar" src="Arda.jpg" alt="Arda Ünal portrait" />
       </div>
       <div>
-        <p class="kicker">Programmer · AI Builder · Research Writer</p>
+        <p class="kicker">Applied Mathematics · Artificial Intelligence · Technology & Society</p>
         <div class="name-block" aria-label="Arda Ünal">
           <span class="name-first">Arda</span>
           <span class="name-last">ÜNAL</span>
         </div>
-        <h1 class="hero-headline">I build software, explore AI, and write about technology.</h1>
-        <p>
-          I am Arda Ünal, an IB student from Istanbul focused on <a href="#software" class="link-dev">computer science</a>,
-          <a href="#software" class="link-ai">AI</a>, and <a href="research.html" class="link-research">applied mathematics</a>.
-          I enjoy building ambitious projects from scratch, testing them in real conditions, and sharing both the wins
-          and the failures through <a href="articles.html" class="link-write">technical writing</a>.
-        </p>
+        <p class="hero-tagline">Explore · Build · Share</p>
         <div class="hero-actions">
           <a class="cta-work" href="work.html">View My Work →</a>
           <span class="pill-linkedin"><a href="https://linkedin.com/in/arda-ünal-1ba497396" target="_blank" rel="noreferrer">Connect On LinkedIn →</a></span>
@@ -1070,61 +1102,42 @@
 
     <section class="panel" id="snapshot">
       <div class="stats">
-        <div class="stat"><strong>12</strong>awards and honors</div>
-        <div class="stat"><strong>4+</strong>published articles</div>
-        <div class="stat"><strong>4</strong>research tracks</div>
-        <div class="stat"><strong>6</strong>internship and work experiences</div>
-        <div class="stat"><strong>3</strong>launched projects</div>
-        <div class="stat"><strong>1</strong>patent application</div>
+        <div class="stat"><strong>3</strong>Projects Built</div>
+        <div class="stat"><strong>4+</strong>Ideas Published</div>
+        <div class="stat"><strong>1</strong>Patent Pending</div>
+        <div class="stat"><strong>1</strong>Game Published on Steam</div>
       </div>
     </section>
 
     <section class="panel" id="what-i-work-with">
-      <h2 class="built-title">What I Work With</h2>
+      <h2 class="built-title">What I Work On</h2>
       <div class="work-with-grid">
         <article class="cap-card">
-          <div class="cap-top"><h3 class="cap-name">Python</h3><p class="cap-score">95%</p></div>
-          <div class="cap-bar"><span class="cap-fill" style="width: 95%"></span></div>
-          <p class="cap-meta">ai · backend · data</p>
+          <h3 class="cap-name">Artificial Intelligence</h3>
+          <p class="cap-meta">Predictive modeling, neural networks, experimentation</p>
         </article>
         <article class="cap-card">
-          <div class="cap-top"><h3 class="cap-name">TensorFlow / ML</h3><p class="cap-score">90%</p></div>
-          <div class="cap-bar"><span class="cap-fill" style="width: 90%"></span></div>
-          <p class="cap-meta">modeling · experimentation</p>
+          <h3 class="cap-name">Data & Decision Making</h3>
+          <p class="cap-meta">Forecasting, financial data, optimization</p>
         </article>
         <article class="cap-card">
-          <div class="cap-top"><h3 class="cap-name">C# / Unity</h3><p class="cap-score">84%</p></div>
-          <div class="cap-bar"><span class="cap-fill" style="width: 84%"></span></div>
-          <p class="cap-meta">game systems · deployment</p>
+          <h3 class="cap-name">Technology & Society</h3>
+          <p class="cap-meta">AI ethics, digital behavior, responsible technology</p>
         </article>
         <article class="cap-card">
-          <div class="cap-top"><h3 class="cap-name">Java</h3><p class="cap-score">80%</p></div>
-          <div class="cap-bar"><span class="cap-fill" style="width: 80%"></span></div>
-          <p class="cap-meta">object-oriented development</p>
-        </article>
-        <article class="cap-card">
-          <div class="cap-top"><h3 class="cap-name">SQL / Data</h3><p class="cap-score">78%</p></div>
-          <div class="cap-bar"><span class="cap-fill" style="width: 78%"></span></div>
-          <p class="cap-meta">queries · analysis pipelines</p>
-        </article>
-        <article class="cap-card">
-          <div class="cap-top"><h3 class="cap-name">GitHub / Shipping</h3><p class="cap-score">88%</p></div>
-          <div class="cap-bar"><span class="cap-fill" style="width: 88%"></span></div>
-          <p class="cap-meta">versioning · release workflows</p>
+          <h3 class="cap-name">Software Development</h3>
+          <p class="cap-meta">Interactive applications, game development, deployment</p>
         </article>
       </div>
     </section>
 
     <section class="panel" id="software">
-      <h2 class="built-title">Things I've Built</h2>
+      <h2 class="built-title">Projects That Started with a Question</h2>
       <div class="grid-3">
         <article class="project-card">
           <img class="fit-contain" src="Patent.jpg" alt="LSTM patent project visual" />
           <div class="project-content">
             <h3>LSTM-Based Stock Price Prediction System</h3>
-            <p class="meta">Patent Application • April 2026</p>
-            <p class="detail">I co-developed a multi-layer LSTM forecasting system that combines technical and macroeconomic indicators, then optimized windows and hyperparameters for stable time-series performance.</p>
-            <p class="detail">The system was deployed for practical use and filed as a patent application (No: 2026/004897).</p>
             <a class="project-link" href="LSTM%20Tabanli%20Hisse%20Senedi%20Fiyat%20Tahmin%20Sistemi%20Tarifname_v3.pdf" target="_blank" rel="noreferrer">Project Document →</a>
           </div>
         </article>
@@ -1133,9 +1146,6 @@
           <img src="HamdiAI.jpg" alt="AI financial forecasting results" />
           <div class="project-content">
             <h3>AI Financial Forecasting Bot</h3>
-            <p class="meta">Python, TensorFlow • Aug–Sep 2025</p>
-            <p class="detail">I built and trained a forecasting bot on 5 years of stock data plus 28 macroeconomic indicators, then evaluated failure cases like overfitting and distribution shift.</p>
-            <p class="detail">The model is published as a live web tool and documented through technical writing.</p>
             <a class="project-link" href="https://www.hamdiai.com" target="_blank" rel="noreferrer">Live Demo →</a>
             <a class="project-link" href="https://medium.com/@ardaunal1000/" target="_blank" rel="noreferrer">Write-Up →</a>
           </div>
@@ -1145,9 +1155,6 @@
           <img class="fit-contain" src="FlyingUp.jpg" alt="Flying Up game visual" />
           <div class="project-content">
             <h3>Flying Up (Steam)</h3>
-            <p class="meta">Unity, C# • Apr–Jul 2025</p>
-            <p class="detail">I developed and shipped a full 3D indie game as a solo developer using C# and Unity, including gameplay systems and physics-based movement.</p>
-            <p class="detail">The project reached 41 downloads and generated revenue after release on Steam.</p>
             <a class="project-link" href="https://store.steampowered.com/app/3665050/Flying_Up/" target="_blank" rel="noreferrer">View On Steam →</a>
           </div>
         </article>
@@ -1155,7 +1162,7 @@
     </section>
 
     <section class="panel" id="writing">
-      <h2>Articles & Technical Writing</h2>
+      <h2>Writing & Reflections</h2>
       <div class="writing-grid">
         <article class="writing-card">
           <div class="writing-media">
@@ -1164,96 +1171,30 @@
           <div class="writing-content">
             <h3>Medium</h3>
             <div class="writing-items">
-              <p class="writing-point">Stock prediction: model design, dataset decisions, and experiment outcomes.</p>
-              <p class="writing-point">The ethical dimension of AI in finance: black-box models, fairness, and inequality.</p>
-              <p class="writing-point">Reflections on what failed in my ML pipeline and what improved after iteration.</p>
+              <div class="writing-entry">
+                <p class="writing-label">Stock Prediction</p>
+                <p class="writing-point">Inside the development of Hamdiai</p>
+              </div>
+              <div class="writing-entry">
+                <p class="writing-label">AI Ethics</p>
+                <p class="writing-point">Can AI make fair financial decisions?</p>
+              </div>
+              <div class="writing-entry">
+                <p class="writing-label">Failure Log</p>
+                <p class="writing-point">What my model taught me by failing</p>
+              </div>
             </div>
             <a class="project-link" href="https://medium.com/@ardaunal1000/" target="_blank" rel="noreferrer">Read on Medium →</a>
           </div>
         </article>
 
-        <article class="writing-card">
-          <div class="writing-content">
-            <h3>School Magazine SEVTIMES</h3>
-            <div class="writing-items">
-              <p class="writing-point">Published three articles as Digital Citizen Ambassador & Writer.</p>
-              <p class="writing-point">Focused on social media effects: loneliness, comparison pressure, and digital overexposure.</p>
-              <p class="writing-point">Connected technology literacy with personal well-being and responsible use.</p>
-            </div>
-          </div>
-        </article>
       </div>
     </section>
 
-    <section class="panel" id="research">
-      <h2>Research, Internship & Academic Exploration</h2>
-      <div class="split">
-        <article class="list-card">
-          <h3>Research</h3>
-          <div class="mini-stack">
-            <article class="mini-item">
-              <p class="mini-date">June 2026 - Present</p>
-              <h4>Pioneer Academics Research Program</h4>
-              <p>Independent research in data science and predictive modeling with academic mentorship.</p>
-            </article>
-            <article class="mini-item">
-              <p class="mini-date">October 2025 - Present</p>
-              <h4>Independent AI Research Writing</h4>
-              <p>Technical writing on forecasting systems and ethics of black-box AI models.</p>
-            </article>
-            <article class="mini-item">
-              <p class="mini-date">2025</p>
-              <h4>Oxford & QTurkey Programs</h4>
-              <p>Applied ML forecasting practice and quantum programming exploration with Qiskit.</p>
-            </article>
-          </div>
-        </article>
-
-        <article class="list-card">
-          <h3>Internship</h3>
-          <div class="mini-stack">
-            <article class="mini-item">
-              <p class="mini-date">July 2025</p>
-              <h4>Engineering Intern, Meyer Group</h4>
-              <p>Supported final testing, integration checks, and observed full access-control workflows.</p>
-            </article>
-          </div>
-        </article>
-      </div>
-
-      <div class="chips" aria-label="Programming languages">
-        <span class="chip">Programming Languages: Python</span>
-        <span class="chip">Programming Languages: C#</span>
-        <span class="chip">Programming Languages: Java</span>
-        <span class="chip">Tools: TensorFlow, Scikit-learn, Pandas, NumPy</span>
-        <span class="chip">Platforms: Unity, GitHub, Steam</span>
-      </div>
-    </section>
-
-    <section class="panel" id="awards">
-      <h2>Awards & Recognition</h2>
-      <div class="awards-grid">
-        <article class="award-card">
-          <div class="award-head"><span class="award-icon">🎓</span><p class="award-year">2026</p></div>
-          <p class="award-title">Scholarships</p>
-          <p class="award-note">WPI Innovation Award ($25,000 Merit Scholarship) and University of Rochester Xerox Award for Innovation & Information Technology.</p>
-        </article>
-        <article class="award-card">
-          <div class="award-head"><span class="award-icon">🏆</span><p class="award-year">2024-2026</p></div>
-          <p class="award-title">Competitions</p>
-          <p class="award-note">Purple Comet Global/Turkey 1st place, Waterloo medals, KIMFIBI Physics Champion, ASMA 2nd place, and Turkey Intelligence Foundation national rankings.</p>
-        </article>
-        <article class="award-card">
-          <div class="award-head"><span class="award-icon">🎵</span><p class="award-year">2025</p></div>
-          <p class="award-title">Music Award</p>
-          <p class="award-note">ABRSM Grade 8 Certificate (Royal Academy of Music), awarded after advanced-level external performance assessment.</p>
-        </article>
-      </div>
-    </section>
 
     <section class="talk-section">
-      <p class="talk-kicker">Let's talk</p>
-      <h2 class="talk-title">Have a project, role, or<br />idea in mind?</h2>
+      <p class="talk-kicker">What's Next?</p>
+      <h2 class="talk-title">I am always looking for the next question worth exploring.</h2>
       <p class="talk-copy">I'm always open to interesting problems, internships, and collaborations. Reach out - I'll get back to you quickly.</p>
       <div class="talk-actions">
         <a class="cta-work" href="contact.html">Get in touch →</a>
@@ -1280,10 +1221,10 @@
           <div class="footer-list">
             <a href="index.html">Home</a>
             <a href="about.html">About</a>
-            <a href="work.html">Work</a>
-            <a href="research.html">Research</a>
-            <a href="experience.html">Experience</a>
-            <a href="articles.html">Articles</a>
+            <a href="work.html">Projects</a>
+            
+            
+            <a href="articles.html">Writing</a>
             <a href="contact.html">Contact</a>
           </div>
         </div>
